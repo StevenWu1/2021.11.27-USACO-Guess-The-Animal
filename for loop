@@ -1,0 +1,19 @@
+import sys
+
+sys.stdin = open("C:\\Users\\steven-lauren\\Desktop\\Python scripts\\guess.in","r")
+
+data = {}
+for line in sys.stdin:
+    animal, num, *traits = line.strip().split()
+    data[animal] = set(traits)
+
+most_common = 0
+for key1 in data:
+    for key2 in data:
+        if key1 != key2:
+            common = len(data[key1].intersection(data[key2]))
+            most_common = max(common,most_common)
+
+print(most_common + 1)
+
+sys.stdin.close()
