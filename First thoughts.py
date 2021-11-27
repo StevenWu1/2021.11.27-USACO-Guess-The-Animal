@@ -1,13 +1,15 @@
+
 import sys
 
-sys.stdin = open("guess.in","r")
-sys.stdout = open("guess.out","w")
+sys.stdin = open("C:\\Users\\steven-lauren\\Desktop\\Python scripts\\guess.in","r")
+sys.stdout = open("C:\\Users\\steven-lauren\\Desktop\\Python scripts\\guess.out","w")
 
 def parse_input(lines):
     n = int(lines.pop(0))
+    data = dict()
     for line in lines:
-        animals, num, traits = line.strip(). split()
-        data[animals] = set(traits)
+        animal, num, *traits = line.strip().split()
+        data[animal] = set(traits)
     return data
 
 def slowmethod(data):
@@ -30,4 +32,5 @@ goat 2 makesmilk eatsgrass
 
 print(slowmethod(parse_input(sys.stdin.readlines())))
  
-close(sys.stdout)
+sys.stdin.close()
+sys.stdout.close()
