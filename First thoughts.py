@@ -1,3 +1,9 @@
+import sys
+
+sys.stdin = open("guess.in","r")
+
+sys.stdout = open("guess.out","w")
+
 def parse_input(lines):
  n = int(lines.pop(0))
  for line in lines:
@@ -23,4 +29,6 @@ def slowmethod(data):
  goat 2 makesmilk eatsgrass
  "".strip().split("\n")
  
+ print(slowmethod(parse_input(sys.stdin.readlines())))
  
+ close(sys.stdout)
